@@ -7,6 +7,7 @@ TagManager:
   - Wave
   - Sender
   - Receiver
+  - Repeater
   layers:
   - Default
   - TransparentFX

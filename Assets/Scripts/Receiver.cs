@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour {
 
+    private int amp;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +15,13 @@ public class Receiver : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wave")
+        {
+            Wave wave = collision.gameObject.GetComponent<Wave>();
+            amp = wave.amp;
+        }
+    }
 }

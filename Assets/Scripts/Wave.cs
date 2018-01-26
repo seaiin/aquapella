@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
-    private int amp;
-
-    public SphereCollider sphereCollider;
+    public int amp;
+    public CircleCollider2D circleCollider2D;
     public float radius;
     public int numSegments = 128;
+    public int waveId;
 
 	void OnEnable () {
         amp = 0;
-        radius = 0;
     }
 	
 	void Update () {
-        sphereCollider.radius = radius;
+        circleCollider2D.radius = radius;
         radius += 0.01f;
         CirRender();
         radBoundary();
@@ -53,9 +52,25 @@ public class Wave : MonoBehaviour {
 
     public void radBoundary()
     {
-        if (radius > 5)
+        if (radius >= 5)
         {
+            radius = 0;
+            circleCollider2D.radius = radius;
+            CirRender();
             gameObject.SetActive(false);
+        }
+    }
+
+    public int getAmp()
+    {
+        return amp;
+    }
+
+    public void setId(int id)
+    {
+        if (waveId != null)
+        {
+            waveId = id;
         }
     }
 }
