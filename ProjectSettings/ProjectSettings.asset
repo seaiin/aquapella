@@ -635,7 +635,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 475998ea-e3d7-4e61-820e-02a7a3c287fa
-  projectName: Aquapella (2)
+  projectName: Aquapella
   organizationId: seaiin
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
