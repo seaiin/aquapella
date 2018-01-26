@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wave
+  - Sender
+  - Receiver
   layers:
   - Default
   - TransparentFX

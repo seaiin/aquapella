@@ -5,22 +5,57 @@ using UnityEngine;
 public class Wave : MonoBehaviour {
 
     private int amp;
-    SphereCollider sphereCollider;
 
-	// Use this for initialization
-	void Start () {
+    public SphereCollider sphereCollider;
+    public float radius;
+    public int numSegments = 128;
+
+	void OnEnable () {
         amp = 0;
-	}
+        radius = 0;
+    }
 	
-	// Update is called once per frame
 	void Update () {
-        sphereCollider.radius += 0.1f;
-	}
+        sphereCollider.radius = radius;
+        radius += 0.01f;
+        CirRender();
+        radBoundary();
+    }
+
+    public void CirRender()
+    {
+        LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+        Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
+        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+        lineRenderer.SetColors(c1, c1);
+        lineRenderer.SetWidth(0.1f, 0.1f);
+        lineRenderer.SetVertexCount(numSegments + 1);
+        lineRenderer.useWorldSpace = false;
+
+        float deltaTheta = (float)(2.0 * Mathf.PI) / numSegments;
+        float theta = 0f;
+
+        for (int i = 0; i < numSegments + 1; i++)
+        {
+            float x = radius * Mathf.Cos(theta);
+            float y = radius * Mathf.Sin(theta);
+
+            Vector3 pos = new Vector3(x, y, 0);
+            lineRenderer.SetPosition(i, pos);
+            theta += deltaTheta;
+        }
+    }
 
     public void setAmp(int receiveAmp)
     {
-        sphereCollider = GetComponent<SphereCollider>();
         amp = receiveAmp;
-        Debug.Log("Wave Amp : " + amp);
+    }
+
+    public void radBoundary()
+    {
+        if (radius > 5)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
