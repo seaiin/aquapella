@@ -32,6 +32,7 @@ public class Repeater : MonoBehaviour {
             wave.SendMessage("SetColor", repeaterColor);
             wave.SendMessage("SetOwner", gameObject);
             FindObjectOfType<AudioManager>().Play("ping");
+            gameObject.SetActive(false);
         }
     }
 
@@ -76,5 +77,12 @@ public class Repeater : MonoBehaviour {
     public float MinColor(float a, float b)
     {
         return Mathf.Abs(a - b);
+    }
+
+    void OnMouseDrag()
+    {
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
+        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint);
+        transform.position = cursorPosition;
     }
 }
