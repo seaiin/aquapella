@@ -4,52 +4,85 @@ using UnityEngine;
 
 public class Repeater : MonoBehaviour {
 
-    public int amp;
-
-    private int ampFac = 100;
-    private List<int> waveList = new List<int>();
+    public Color repeaterColor;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Wave")
         {
-            Wave waveEnter = collision.gameObject.GetComponent<Wave>();
-            if (!waveList.Contains(waveEnter.waveId) && waveEnter.waveId != 0)
+            Wave wave = collision.gameObject.GetComponent<Wave>();
+            if (wave.CheckOwner(gameObject))
             {
-                amp = waveEnter.amp + ampFac;
+                ChangeColor(wave.GetColor());
+                wave.DesWave();
                 SpawnWave();
-                waveList.Add(waveEnter.waveId);
             }
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Wave")
-        {
-            Wave waveExit = collision.gameObject.GetComponent<Wave>();
-            waveList.Remove(waveExit.waveId);
-        }
-        
     }
 
     private void SpawnWave()
     {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
-        wave.GetComponent<Wave>().setId(waveList.Count + 1);
 
         wave.transform.position = gameObject.transform.position;
 
         if (wave != null)
         {
             wave.SetActive(true);
-            wave.SendMessage("setAmp", amp);
-            amp = 0;
-            
+            wave.SendMessage("SetColor", repeaterColor);
+            wave.SendMessage("SetOwner", gameObject);
             FindObjectOfType<AudioManager>().Play("ping");
+            gameObject.SetActive(false);
         }
-
-        
     }
 
+    public void ChangeColor(Color receiveColor)
+    {
+        if(gameObject.tag == "RepeaterPos")
+        {
+            repeaterColor.r = PlusColor(receiveColor.r, repeaterColor.r);
+            repeaterColor.g = PlusColor(receiveColor.g, repeaterColor.g);
+            repeaterColor.b = PlusColor(receiveColor.b, repeaterColor.b);
+        }
+        if(gameObject.tag == "RepeaterNeg")
+        {
+            repeaterColor.r = MinColor(receiveColor.r, repeaterColor.r);
+            repeaterColor.g = MinColor(receiveColor.g, repeaterColor.g);
+            repeaterColor.b = MinColor(receiveColor.b, repeaterColor.b);
+        }
+        if(gameObject.tag == "RepeaterInv")
+        {
+            repeaterColor.r = InvColor(repeaterColor.r);
+            repeaterColor.g = InvColor(repeaterColor.g);
+            repeaterColor.b = InvColor(repeaterColor.b);
+        }
+    }
+
+    public float InvColor(float color)
+    {
+        if(color > 0)
+        {
+            return 0;
+        } else
+        {
+            return 255.0f;
+        }
+    }
+
+    public float PlusColor(float a, float b)
+    {
+        return (a + b) % 255;
+    }
+
+    public float MinColor(float a, float b)
+    {
+        return Mathf.Abs(a - b);
+    }
+
+    void OnMouseDrag()
+    {
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
+        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint);
+        transform.position = cursorPosition;
+    }
 }

@@ -4,75 +4,61 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
-    public int amp;
+    private float radius;
+    private float scale;
+    private Color waveColor;
+    private GameObject owner;
+
     public CircleCollider2D circleCollider2D;
-    public Material glowMat;
-    public float radius;
-    public int numSegments = 128;
-    public int waveId = 0;
+    public SpriteRenderer spriteRenderer;
 
 	void OnEnable () {
-        amp = 0;
+        scale = 0.3f;
+        radius = 4f;
+        gameObject.transform.localScale = new Vector3(scale, scale, 1);
     }
 	
 	void Update () {
+        radius += 0.0007f;
+        scale += 0.007f;
+        gameObject.transform.localScale = new Vector3(scale, scale, 1);
         circleCollider2D.radius = radius;
-        radius += 0.01f;
-        CirRender();
-        radBoundary();
+        RadBoundary();
     }
 
-    public void CirRender()
+    public void SetColor(Color receiveColor)
     {
-        LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
-        Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
-        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
-        lineRenderer.SetColors(c1, c1);
-        lineRenderer.SetWidth(0.1f, 0.1f);
-        lineRenderer.SetVertexCount(numSegments + 1);
-        lineRenderer.useWorldSpace = false;
-
-        float deltaTheta = (float)(2.0 * Mathf.PI) / numSegments;
-        float theta = 0f;
-
-        for (int i = 0; i < numSegments + 1; i++)
-        {
-            float x = radius * Mathf.Cos(theta);
-            float y = radius * Mathf.Sin(theta);
-
-            Vector3 pos = new Vector3(x, y, 0);
-            lineRenderer.SetPosition(i, pos);
-            theta += deltaTheta;
-        }
+        waveColor = receiveColor;
+        spriteRenderer.color = waveColor;
     }
 
-    public void setAmp(int receiveAmp)
-    {
-        amp = receiveAmp;
-    }
-
-    public void radBoundary()
+    public void RadBoundary()
     {
         if (radius >= 5)
         {
             radius = 0;
             circleCollider2D.radius = radius;
-            CirRender();
-            waveId = 0;
             gameObject.SetActive(false);
         }
     }
 
-    public int getAmp()
+    public void DesWave()
     {
-        return amp;
+        gameObject.SetActive(false);
     }
 
-    public void setId(int id)
+    public void SetOwner(GameObject obj)
     {
-        if (waveId == 0)
-        {
-            waveId = id;
-        }
+        owner = obj;
+    }
+
+    public bool CheckOwner(GameObject obj)
+    {
+        return owner != obj;
+    }
+
+    public Color GetColor()
+    {
+        return waveColor;
     }
 }

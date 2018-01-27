@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class Sender : MonoBehaviour {
 
-    private int id;
+    private float amp;
+    private Color waveColor;
 
-    public float amp;
-
-    public int minPosX;
-    public int maxPosX;
-    public int minPosY;
-    public int maxPosY;
-
-	// Use this for initialization
-	void Start () {
-        InitialSender();
-    }
-	
-	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -29,7 +17,7 @@ public class Sender : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             // Rate of increase each time it is triggered
-            amp += 1;
+            amp = amp + 0.1f;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -45,28 +33,26 @@ public class Sender : MonoBehaviour {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
 
         if (wave != null)
-        {
+        { 
             wave.transform.position = gameObject.transform.position;
             wave.SetActive(true);
-            wave.SendMessage("setAmp", amp);
-            wave.SendMessage("setId", id);
-            id++;
+            wave.SendMessage("SetColor", GenColor(amp));
         }
     }
 
-    private void InitialSender()
+    public Color GenColor(float amp)
     {
-        amp = 0;
-        id = 1;
-
-        minPosX = -5;
-        maxPosX = -3;
-        minPosY = -4;
-        maxPosY = 4;
-
-        int posX = Random.Range(minPosX, maxPosX);
-        int posY = Random.Range(minPosY, maxPosY);
-
-        transform.position = new Vector3(posX, posY, 0);
+        if(amp < 1)
+        {
+            waveColor = new Color(255, 0, 0, 255);
+        } else if(amp < 2)
+        {
+            waveColor = new Color(0, 255, 0, 255);
+        } else
+        {
+            waveColor = new Color(0, 0, 255, 255);
+        }
+        return waveColor;
     }
+
 }
