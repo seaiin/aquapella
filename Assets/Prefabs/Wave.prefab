@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amp: 0
   circleCollider2D: {fileID: 58114837549163480}
+  glowMat: {fileID: 2100000, guid: a8c8d44987f8f3e49a9f128a88a3b100, type: 2}
   radius: 1
   numSegments: 360
   waveId: 0
@@ -105,8 +106,8 @@ LineRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 0}
   m_StaticBatchInfo:
@@ -138,14 +139,14 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.08854103
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0, b: 0, a: 1}
@@ -179,6 +180,6 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
+    generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
