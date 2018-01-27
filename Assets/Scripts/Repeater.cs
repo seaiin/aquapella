@@ -14,10 +14,10 @@ public class Repeater : MonoBehaviour {
         if (collision.gameObject.tag == "Wave")
         {
             Wave waveEnter = collision.gameObject.GetComponent<Wave>();
-            if (!waveList.Contains(waveEnter.waveId))
+            if (!waveList.Contains(waveEnter.waveId) && waveEnter.waveId != 0)
             {
                 amp = waveEnter.amp + ampFac;
-                spawnWave();
+                SpawnWave();
                 waveList.Add(waveEnter.waveId);
             }
         }
@@ -33,7 +33,7 @@ public class Repeater : MonoBehaviour {
         
     }
 
-    private void spawnWave()
+    private void SpawnWave()
     {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
 
@@ -43,6 +43,7 @@ public class Repeater : MonoBehaviour {
         {
             wave.SetActive(true);
             wave.SendMessage("setAmp", amp);
+            amp = 0;
         }
     }
 

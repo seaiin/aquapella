@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4177454700235874}
   - component: {fileID: 114877262467480348}
-  - component: {fileID: 114838863899720202}
   - component: {fileID: 58246468008118290}
   - component: {fileID: 50632016206511972}
   m_Layer: 0
@@ -78,19 +77,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114838863899720202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1937113591569640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93134b0341986b46bd98e8c4025681a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool: []
-  pooledObjects: []
 --- !u!114 &114877262467480348
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -92,7 +92,7 @@ MonoBehaviour:
   amp: 0
   circleCollider2D: {fileID: 58114837549163480}
   radius: 1
-  numSegments: 128
+  numSegments: 360
   waveId: 0
 --- !u!120 &120488092199481704
 LineRenderer:

@@ -8,7 +8,7 @@ public class Wave : MonoBehaviour {
     public CircleCollider2D circleCollider2D;
     public float radius;
     public int numSegments = 128;
-    public int waveId;
+    public int waveId = 0;
 
 	void OnEnable () {
         amp = 0;
@@ -57,6 +57,7 @@ public class Wave : MonoBehaviour {
             radius = 0;
             circleCollider2D.radius = radius;
             CirRender();
+            waveId = 0;
             gameObject.SetActive(false);
         }
     }
@@ -68,7 +69,7 @@ public class Wave : MonoBehaviour {
 
     public void setId(int id)
     {
-        if (waveId != null)
+        if (waveId == 0)
         {
             waveId = id;
         }
