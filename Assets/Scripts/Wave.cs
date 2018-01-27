@@ -6,6 +6,7 @@ public class Wave : MonoBehaviour {
 
     public int amp;
     public CircleCollider2D circleCollider2D;
+    public Material glowMat;
     public float radius;
     public int numSegments = 128;
     public int waveId = 0;
