@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 95374495740039602}
   m_Layer: 0
   m_Name: Repeater-WhiteFish
-  m_TagString: Repeater
+  m_TagString: RepeaterPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4cdd7054dbd074e965cb894c232449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amp: 0
+  repeaterColor: {r: 0, g: 1, b: 0.7103448, a: 0}
 --- !u!212 &212625208477988852
 SpriteRenderer:
   m_ObjectHideFlags: 1

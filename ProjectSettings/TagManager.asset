@@ -8,6 +8,9 @@ TagManager:
   - Sender
   - Receiver
   - Repeater
+  - RepeaterNeg
+  - RepeaterPos
+  - RepeaterInv
   layers:
   - Default
   - TransparentFX

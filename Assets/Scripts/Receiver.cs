@@ -5,12 +5,14 @@ using UnityEngine;
 public class Receiver : MonoBehaviour {
 
     private Color receiverColor;
-
-    public SpriteRenderer spriteRenderer;
+    public Color targetColor;
 
     void Update()
     {
-        spriteRenderer.color = receiverColor;
+        if(receiverColor == targetColor)
+        {
+            Debug.Log("Yeah! Go to next stage.");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

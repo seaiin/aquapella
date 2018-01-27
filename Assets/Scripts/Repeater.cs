@@ -39,15 +39,15 @@ public class Repeater : MonoBehaviour {
     {
         if(gameObject.tag == "RepeaterPos")
         {
-            repeaterColor.r = repeaterColor.r + receiveColor.r;
-            repeaterColor.g = repeaterColor.g + receiveColor.g;
-            repeaterColor.b = repeaterColor.b + receiveColor.b;
+            repeaterColor.r = PlusColor(receiveColor.r, repeaterColor.r);
+            repeaterColor.g = PlusColor(receiveColor.g, repeaterColor.g);
+            repeaterColor.b = PlusColor(receiveColor.b, repeaterColor.b);
         }
         if(gameObject.tag == "RepeaterNeg")
         {
-            repeaterColor.r = repeaterColor.r - receiveColor.r;
-            repeaterColor.g = repeaterColor.g - receiveColor.g;
-            repeaterColor.b = repeaterColor.b - receiveColor.b;
+            repeaterColor.r = MinColor(receiveColor.r, repeaterColor.r);
+            repeaterColor.g = MinColor(receiveColor.g, repeaterColor.g);
+            repeaterColor.b = MinColor(receiveColor.b, repeaterColor.b);
         }
         if(gameObject.tag == "RepeaterInv")
         {
@@ -66,5 +66,15 @@ public class Repeater : MonoBehaviour {
         {
             return 255.0f;
         }
+    }
+
+    public float PlusColor(float a, float b)
+    {
+        return (a + b) % 255;
+    }
+
+    public float MinColor(float a, float b)
+    {
+        return Mathf.Abs(a - b);
     }
 }

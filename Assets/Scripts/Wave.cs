@@ -14,13 +14,13 @@ public class Wave : MonoBehaviour {
 
 	void OnEnable () {
         scale = 0.3f;
-        gameObject.transform.localScale = new Vector3(scale, scale, 1);
         radius = 4f;
+        gameObject.transform.localScale = new Vector3(scale, scale, 1);
     }
 	
 	void Update () {
-        radius += 0.001f;
-        scale += 0.003f;
+        radius += 0.0007f;
+        scale += 0.007f;
         gameObject.transform.localScale = new Vector3(scale, scale, 1);
         circleCollider2D.radius = radius;
         RadBoundary();
