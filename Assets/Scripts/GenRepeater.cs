@@ -16,7 +16,7 @@ public class GenRepeater : MonoBehaviour {
     {
         for (int i = 0; i < repCount; i++)
         {
-            InitialRepeater();
+            //InitialRepeater();
         }
     }
 

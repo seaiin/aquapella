@@ -5,10 +5,7 @@ using UnityEngine;
 public class Sender : MonoBehaviour {
 
     private float amp;
-    public int minPosX;
-    public int maxPosX;
-    public int minPosY;
-    public int maxPosY;
+    private Color waveColor;
 
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -20,7 +17,7 @@ public class Sender : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             // Rate of increase each time it is triggered
-            amp = amp + 1.0f;
+            amp = amp + 0.1f;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -39,27 +36,23 @@ public class Sender : MonoBehaviour {
         { 
             wave.transform.position = gameObject.transform.position;
             wave.SetActive(true);
-            wave.SendMessage("SetAmp", GetAmp());
+            wave.SendMessage("SetColor", GenColor(amp));
         }
     }
 
-    public void InitialSender()
+    public Color GenColor(float amp)
     {
-        amp = 0;
-
-        minPosX = -5;
-        maxPosX = -3;
-        minPosY = -4;
-        maxPosY = 4;
-
-        int posX = Random.Range(minPosX, maxPosX);
-        int posY = Random.Range(minPosY, maxPosY);
-
-        transform.position = new Vector3(posX, posY, 0);
+        if(amp < 1)
+        {
+            waveColor = new Color(255, 0, 0, 255);
+        } else if(amp < 2)
+        {
+            waveColor = new Color(0, 255, 0, 255);
+        } else
+        {
+            waveColor = new Color(0, 0, 255, 255);
+        }
+        return waveColor;
     }
 
-    public float GetAmp()
-    {
-        return amp;
-    }
 }

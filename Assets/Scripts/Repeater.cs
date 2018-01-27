@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Repeater : MonoBehaviour {
 
-    private float amp;
+    public Color repeaterColor;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,16 +13,14 @@ public class Repeater : MonoBehaviour {
             Wave wave = collision.gameObject.GetComponent<Wave>();
             if (wave.CheckOwner(gameObject))
             {
-                Debug.Log("Hit");
-                amp = wave.GetAmp();
+                ChangeColor(wave.GetColor());
                 wave.DesWave();
-                TransAmp();
-                SpawnWave(amp);
+                SpawnWave();
             }
         }
     }
 
-    private void SpawnWave(float receiveAmp)
+    private void SpawnWave()
     {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
 
@@ -31,19 +29,17 @@ public class Repeater : MonoBehaviour {
         if (wave != null)
         {
             wave.SetActive(true);
-            wave.SendMessage("SetAmp", amp);
+            wave.SendMessage("SetColor", repeaterColor);
             wave.SendMessage("SetOwner", gameObject);
             FindObjectOfType<AudioManager>().Play("ping");
         }
     }
 
-    public void SetAmp(float receiveAmp)
+    public void ChangeColor(Color receiveColor)
     {
-        amp = receiveAmp;
-    }
-
-    public void TransAmp()
-    {
-        amp += 1;
+        repeaterColor.r = repeaterColor.r + receiveColor.r;
+        repeaterColor.g = repeaterColor.g + receiveColor.g;
+        repeaterColor.b = repeaterColor.b + receiveColor.b;
+        repeaterColor.a = repeaterColor.a + receiveColor.a;
     }
 }
