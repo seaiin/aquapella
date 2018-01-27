@@ -40,7 +40,7 @@ public class ObjectPooling : MonoBehaviour
     {
         //1 iterate pooled objects
         for (int i = 0; i < pooledObjects.Count; i++)
-        {
+        { 
             //2 check item in list that not active currently
             if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
             {

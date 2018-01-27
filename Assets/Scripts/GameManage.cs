@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenRepeater : MonoBehaviour {
+public class GameManage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,6 @@ public class GenRepeater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 }

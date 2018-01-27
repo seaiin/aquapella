@@ -27,20 +27,18 @@ public class Sender : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Debug.Log(amp);
             SpawnWave();
             amp = 0;
         }
 	}
 
-    private void SpawnWave()
+    public void SpawnWave()
     {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
 
-        wave.transform.position = gameObject.transform.position;
-
         if (wave != null)
         {
+            wave.transform.position = gameObject.transform.position;
             wave.SetActive(true);
             wave.SendMessage("setAmp", amp);
             wave.SendMessage("setId", id);
@@ -51,7 +49,7 @@ public class Sender : MonoBehaviour {
     private void InitialSender()
     {
         amp = 0;
-        id = 0;
+        id = 1;
 
         minPosX = -5;
         maxPosX = -3;

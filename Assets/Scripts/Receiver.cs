@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour {
 
-    private int amp;
+    public int amp;
+    public int minPosX;
+    public int maxPosX;
+    public int minPosY;
+    public int maxPosY;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+
+        InitialReceive();
 		
 	}
 	
@@ -22,6 +28,23 @@ public class Receiver : MonoBehaviour {
         {
             Wave wave = collision.gameObject.GetComponent<Wave>();
             amp = wave.amp;
+            Debug.Log("Receive : " + amp);
         }
     }
+
+    private void InitialReceive()
+    {
+        amp = 0;
+
+        minPosX = 4;
+        maxPosX = 6;
+        minPosY = -4;
+        maxPosY = 4;
+
+        int posX = Random.Range(minPosX, maxPosX);
+        int posY = Random.Range(minPosY, maxPosY);
+
+        transform.position = new Vector3(posX, posY, 0);
+    }
+
 }
