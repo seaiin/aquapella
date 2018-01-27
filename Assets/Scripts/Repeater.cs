@@ -37,9 +37,34 @@ public class Repeater : MonoBehaviour {
 
     public void ChangeColor(Color receiveColor)
     {
-        repeaterColor.r = repeaterColor.r + receiveColor.r;
-        repeaterColor.g = repeaterColor.g + receiveColor.g;
-        repeaterColor.b = repeaterColor.b + receiveColor.b;
-        repeaterColor.a = repeaterColor.a + receiveColor.a;
+        if(gameObject.tag == "RepeaterPos")
+        {
+            repeaterColor.r = repeaterColor.r + receiveColor.r;
+            repeaterColor.g = repeaterColor.g + receiveColor.g;
+            repeaterColor.b = repeaterColor.b + receiveColor.b;
+        }
+        if(gameObject.tag == "RepeaterNeg")
+        {
+            repeaterColor.r = repeaterColor.r - receiveColor.r;
+            repeaterColor.g = repeaterColor.g - receiveColor.g;
+            repeaterColor.b = repeaterColor.b - receiveColor.b;
+        }
+        if(gameObject.tag == "RepeaterInv")
+        {
+            repeaterColor.r = InvColor(repeaterColor.r);
+            repeaterColor.g = InvColor(repeaterColor.g);
+            repeaterColor.b = InvColor(repeaterColor.b);
+        }
+    }
+
+    public float InvColor(float color)
+    {
+        if(color > 0)
+        {
+            return 0;
+        } else
+        {
+            return 255.0f;
+        }
     }
 }
