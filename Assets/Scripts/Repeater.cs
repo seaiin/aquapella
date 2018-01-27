@@ -36,6 +36,7 @@ public class Repeater : MonoBehaviour {
     private void SpawnWave()
     {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
+        wave.GetComponent<Wave>().setId(waveList.Count + 1);
 
         wave.transform.position = gameObject.transform.position;
 
@@ -44,8 +45,11 @@ public class Repeater : MonoBehaviour {
             wave.SetActive(true);
             wave.SendMessage("setAmp", amp);
             amp = 0;
+            
             FindObjectOfType<AudioManager>().Play("ping");
         }
+
+        
     }
 
 }
