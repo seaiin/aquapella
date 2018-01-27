@@ -44,6 +44,7 @@ public class Repeater : MonoBehaviour {
             wave.SetActive(true);
             wave.SendMessage("setAmp", amp);
             amp = 0;
+            FindObjectOfType<AudioManager>().Play("ping");
         }
     }
 
