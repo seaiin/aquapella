@@ -11,8 +11,6 @@ public class GenRepeater : MonoBehaviour {
 
     public int repCount = 5;
 
-    public Repeater repeater;
-
     // Use this for initialization
     void Start()
     {

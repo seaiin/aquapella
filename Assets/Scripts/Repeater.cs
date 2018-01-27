@@ -4,52 +4,46 @@ using UnityEngine;
 
 public class Repeater : MonoBehaviour {
 
-    public int amp;
-
-    private int ampFac = 100;
-    private List<int> waveList = new List<int>();
+    private float amp;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Wave")
         {
-            Wave waveEnter = collision.gameObject.GetComponent<Wave>();
-            if (!waveList.Contains(waveEnter.waveId) && waveEnter.waveId != 0)
+            Wave wave = collision.gameObject.GetComponent<Wave>();
+            if (wave.CheckOwner(gameObject))
             {
-                amp = waveEnter.amp + ampFac;
-                SpawnWave();
-                waveList.Add(waveEnter.waveId);
+                Debug.Log("Hit");
+                amp = wave.GetAmp();
+                wave.DesWave();
+                TransAmp();
+                SpawnWave(amp);
             }
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Wave")
-        {
-            Wave waveExit = collision.gameObject.GetComponent<Wave>();
-            waveList.Remove(waveExit.waveId);
-        }
-        
-    }
-
-    private void SpawnWave()
+    private void SpawnWave(float receiveAmp)
     {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
-        wave.GetComponent<Wave>().setId(waveList.Count + 1);
 
         wave.transform.position = gameObject.transform.position;
 
         if (wave != null)
         {
             wave.SetActive(true);
-            wave.SendMessage("setAmp", amp);
-            amp = 0;
-            
+            wave.SendMessage("SetAmp", amp);
+            wave.SendMessage("SetOwner", gameObject);
             FindObjectOfType<AudioManager>().Play("ping");
         }
-
-        
     }
 
+    public void SetAmp(float receiveAmp)
+    {
+        amp = receiveAmp;
+    }
+
+    public void TransAmp()
+    {
+        amp += 1;
+    }
 }

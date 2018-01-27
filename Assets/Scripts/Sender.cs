@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class Sender : MonoBehaviour {
 
-    private int id;
-
-    public float amp;
-
+    private float amp;
     public int minPosX;
     public int maxPosX;
     public int minPosY;
     public int maxPosY;
 
-	// Use this for initialization
-	void Start () {
-        InitialSender();
-    }
-	
-	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -29,7 +20,7 @@ public class Sender : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             // Rate of increase each time it is triggered
-            amp += 1;
+            amp = amp + 1.0f;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -45,19 +36,16 @@ public class Sender : MonoBehaviour {
         GameObject wave = ObjectPooling.SharedInstance.GetPooledObject("Wave");
 
         if (wave != null)
-        {
+        { 
             wave.transform.position = gameObject.transform.position;
             wave.SetActive(true);
-            wave.SendMessage("setAmp", amp);
-            wave.SendMessage("setId", id);
-            id++;
+            wave.SendMessage("SetAmp", GetAmp());
         }
     }
 
-    private void InitialSender()
+    public void InitialSender()
     {
         amp = 0;
-        id = 1;
 
         minPosX = -5;
         maxPosX = -3;
@@ -68,5 +56,10 @@ public class Sender : MonoBehaviour {
         int posY = Random.Range(minPosY, maxPosY);
 
         transform.position = new Vector3(posX, posY, 0);
+    }
+
+    public float GetAmp()
+    {
+        return amp;
     }
 }

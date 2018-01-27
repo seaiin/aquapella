@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour {
 
-    public int amp;
+    public float amp;
     public int minPosX;
     public int maxPosX;
     public int minPosY;
@@ -27,8 +27,7 @@ public class Receiver : MonoBehaviour {
         if (collision.gameObject.tag == "Wave")
         {
             Wave wave = collision.gameObject.GetComponent<Wave>();
-            amp = wave.amp;
-            Debug.Log("Receive : " + amp);
+            amp = wave.GetAmp();
         }
     }
 
