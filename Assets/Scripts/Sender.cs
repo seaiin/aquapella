@@ -6,7 +6,8 @@ public class Sender : MonoBehaviour {
 
     private int id;
 
-    public int amp;
+    public float amp;
+
     public int minPosX;
     public int maxPosX;
     public int minPosY;
@@ -19,16 +20,22 @@ public class Sender : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FindObjectOfType<AudioManager>().ResetPitch("ping");
+            amp = 0;
+        }
 
         if (Input.GetKey(KeyCode.Space))
         {
-            amp += 10;
+            // Rate of increase each time it is triggered
+            amp += 1;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             SpawnWave();
-            amp = 0;
+            FindObjectOfType<AudioManager>().AlterPitch("ping", amp / 100);
             FindObjectOfType<AudioManager>().Play("ping");
         }
 	}
