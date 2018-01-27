@@ -29,6 +29,7 @@ public class Sender : MonoBehaviour {
         {
             SpawnWave();
             amp = 0;
+            FindObjectOfType<AudioManager>().Play("ping");
         }
 	}
 
