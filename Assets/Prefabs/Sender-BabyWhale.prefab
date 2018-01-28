@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4036000991148474}
   - component: {fileID: 114525892448711440}
-  - component: {fileID: 114291179722437968}
   - component: {fileID: 82286531111182334}
-  - component: {fileID: 212285022338503332}
-  - component: {fileID: 95683416502381362}
+  - component: {fileID: 95186644285219122}
+  - component: {fileID: 212817147312600992}
   m_Layer: 0
   m_Name: Sender-BabyWhale
   m_TagString: Sender
@@ -124,7 +123,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95683416502381362
+--- !u!95 &95186644285219122
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -133,7 +132,7 @@ Animator:
   m_GameObject: {fileID: 1351385330255322}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 17b39eece7b96bc4990f0d291a88ed17, type: 2}
+  m_Controller: {fileID: 9100000, guid: c025ee07b97bb124db320f3fe3720185, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -141,27 +140,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114291179722437968
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1351385330255322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93134b0341986b46bd98e8c4025681a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - amountToPool: 50
-    objectToPool: {fileID: 1194591615176416, guid: 37f395a29cce52c4c834c0ca3f0fcda9,
-      type: 2}
-    shouldExpand: 0
-  - amountToPool: 5
-    objectToPool: {fileID: 1937113591569640, guid: b62c1b108f3da8f4491d121c159e374b,
-      type: 2}
-    shouldExpand: 0
-  pooledObjects: []
 --- !u!114 &114525892448711440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManage: {fileID: 114555736741329774, guid: 1d8642e78b923c84f92f23f6bdcbcbae,
     type: 2}
---- !u!212 &212285022338503332
+--- !u!212 &212817147312600992
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -214,7 +192,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.1, y: 1.1}
+  m_Size: {x: 1.82, y: 1.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
