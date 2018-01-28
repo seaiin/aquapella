@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4678924954315070}
   - component: {fileID: 212966570693198062}
-  - component: {fileID: 114453929094344542}
+  - component: {fileID: 114869429669294394}
   m_Layer: 0
   m_Name: GlowLight
   m_TagString: Untagged
@@ -208,18 +208,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114453929094344542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1289519650710906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf7bd3a31f3d2644864514596378f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 212966570693198062}
 --- !u!114 &114472430012902454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +220,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repeaterColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114869429669294394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289519650710906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77dd4d0d13867d46b71078b472e1906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 212966570693198062}
 --- !u!212 &212694290771070560
 SpriteRenderer:
   m_ObjectHideFlags: 1

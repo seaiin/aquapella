@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4610214095257770}
   - component: {fileID: 212007614594263136}
-  - component: {fileID: 114090615289832214}
+  - component: {fileID: 114102286170819076}
   m_Layer: 0
   m_Name: GlowLight
   m_TagString: Untagged
@@ -208,7 +208,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114090615289832214
+--- !u!114 &114102286170819076
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1212908559770368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf7bd3a31f3d2644864514596378f1d, type: 3}
+  m_Script: {fileID: 11500000, guid: e77dd4d0d13867d46b71078b472e1906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212007614594263136}

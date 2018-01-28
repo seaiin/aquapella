@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4829560181686354}
   - component: {fileID: 212347644912766118}
-  - component: {fileID: 114769959310049436}
+  - component: {fileID: 114714143989132516}
   m_Layer: 0
   m_Name: GlowLight
   m_TagString: Untagged
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repeaterColor: {r: 0, g: 0, b: 0, a: 1}
---- !u!114 &114769959310049436
+--- !u!114 &114714143989132516
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1331780508687788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf7bd3a31f3d2644864514596378f1d, type: 3}
+  m_Script: {fileID: 11500000, guid: e77dd4d0d13867d46b71078b472e1906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212347644912766118}

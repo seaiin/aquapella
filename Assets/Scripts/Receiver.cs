@@ -9,7 +9,7 @@ public class Receiver : MonoBehaviour {
 
     void Update()
     {
-        if(receiverColor == targetColor)
+        if(receiverColor.r == targetColor.r && receiverColor.b == targetColor.b && receiverColor.g == targetColor.g)
         {
             Debug.Log("Yeah! Go to next stage.");
         }

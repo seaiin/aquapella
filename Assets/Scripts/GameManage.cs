@@ -11,8 +11,6 @@ public class GameManage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Screen.SetResolution(1920, 1080, true, 60);
-        mainCamera.orthographicSize = 7.0f;
     }
 	
 	// Update is called once per frame
