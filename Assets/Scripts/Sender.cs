@@ -5,30 +5,46 @@ using UnityEngine;
 public class Sender : MonoBehaviour {
 
     public GameManage gameManage;
+    public ScaleArrow scaleArrow;
 
-    private float amp;
+    private float amp = 0;
+    private string stateAmp = "default";
     private Color waveColor;
 
 	void Update () {
+        Debug.Log(stateAmp);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             FindObjectOfType<AudioManager>().ResetPitch("ping");
-            amp = 0;
+            if (stateAmp == "default")
+            {
+                stateAmp = "up";
+            }
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
             // Rate of increase each time it is triggered
-            amp = amp + 0.1f;
+            if (stateAmp == "up")
+            {
+                amp = amp + 0.05f;
+            } else if (stateAmp == "down") {
+                amp = amp - 0.05f;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            amp = 0;
             SpawnWave();
+            stateAmp = "default";
             FindObjectOfType<AudioManager>().AlterPitch("ping", amp / 100);
             FindObjectOfType<AudioManager>().Play("ping");
         }
-	}
+
+        scaleArrow.SetScale(stateAmp);
+        SetState();
+    }
 
     public void SpawnWave()
     {
@@ -40,7 +56,6 @@ public class Sender : MonoBehaviour {
             wave.SetActive(true);
             wave.SendMessage("SetColor", GenColor(amp));
             gameManage.SetRun(true);
-
         }
     }
 
@@ -59,4 +74,14 @@ public class Sender : MonoBehaviour {
         return waveColor;
     }
 
+    public void SetState()
+    {
+        if(amp >= 3)
+        {
+            stateAmp = "down";
+        } else if (amp < 0)
+        {
+            stateAmp = "up";
+        }
+    }
 }

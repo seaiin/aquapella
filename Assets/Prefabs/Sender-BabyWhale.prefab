@@ -151,7 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9181dd18394dff94e92a4765a7ab38f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManage: {fileID: 114555736741329774, guid: 1d8642e78b923c84f92f23f6bdcbcbae,
+  gameManage: {fileID: 114077568100350730, guid: 1d8642e78b923c84f92f23f6bdcbcbae,
+    type: 2}
+  scaleArrow: {fileID: 114764743317677952, guid: 9ce9e3c166ee118428f2da4e0210dd79,
     type: 2}
 --- !u!212 &212817147312600992
 SpriteRenderer:
