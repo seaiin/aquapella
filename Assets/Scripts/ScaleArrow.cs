@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScaleArrow : MonoBehaviour {
 
+    public Sender sender;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,13 +20,17 @@ public class ScaleArrow : MonoBehaviour {
     {
         if (state == "up")
         {
-            gameObject.transform.Rotate(0, 0, 1.33f);
+            gameObject.transform.RotateAround(sender.transform.position, Vector3.forward, 1.33f);
         } else if (state == "down")
         {
-            gameObject.transform.Rotate(0, 0, -1.33f);
+            gameObject.transform.RotateAround(sender.transform.position, Vector3.back, 1.33f);
         } else if (state == "default")
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, -45.0f);
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, -135.0f);
+            gameObject.transform.position = new Vector3(-11, -1f, 0.05f);
+        } else if (state == "shot")
+        {
+            gameObject.transform.RotateAround(sender.transform.position, Vector3.back, 2.66f);
         }
     }
 }

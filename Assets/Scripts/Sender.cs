@@ -31,19 +31,30 @@ public class Sender : MonoBehaviour {
             } else if (stateAmp == "down") {
                 amp = amp - 0.05f;
             }
+            SetState();
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            amp = 0;
             SpawnWave();
-            stateAmp = "default";
+            stateAmp = "shot";
             FindObjectOfType<AudioManager>().AlterPitch("ping", amp / 100);
             FindObjectOfType<AudioManager>().Play("ping");
         }
 
+        if (stateAmp == "shot")
+        {
+            if (amp > 0)
+            {
+                amp = amp - 0.1f;
+            } else
+            {
+                amp = 0;
+                stateAmp = "default";
+            }
+        }
+
         scaleArrow.SetScale(stateAmp);
-        SetState();
     }
 
     public void SpawnWave()
@@ -76,10 +87,11 @@ public class Sender : MonoBehaviour {
 
     public void SetState()
     {
-        if(amp >= 3)
+        if (amp >= 3)
         {
             stateAmp = "down";
-        } else if (amp < 0)
+        }
+        else if (amp < 0)
         {
             stateAmp = "up";
         }
