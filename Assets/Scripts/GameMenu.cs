@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePause : MonoBehaviour {
+public class GameMenu : MonoBehaviour {
 
     // Use this for initialization
     public static bool isPaused = false;
