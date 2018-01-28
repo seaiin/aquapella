@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sender : MonoBehaviour {
 
+    public GameManage gameManage;
+
     private float amp;
     private Color waveColor;
 
@@ -37,6 +39,8 @@ public class Sender : MonoBehaviour {
             wave.transform.position = gameObject.transform.position;
             wave.SetActive(true);
             wave.SendMessage("SetColor", GenColor(amp));
+            gameManage.SetRun(true);
+
         }
     }
 
