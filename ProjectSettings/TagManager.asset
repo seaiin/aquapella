@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wave
+  - Sender
+  - Receiver
+  - Repeater
+  - RepeaterNeg
+  - RepeaterPos
+  - RepeaterInv
   layers:
   - Default
   - TransparentFX
@@ -40,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1378296643
     locked: 0
