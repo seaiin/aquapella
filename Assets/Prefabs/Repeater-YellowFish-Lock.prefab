@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 82741577930667282}
   - component: {fileID: 95745306565923228}
   m_Layer: 0
-  m_Name: Repeater-YellowFish 1
+  m_Name: Repeater-YellowFish-Lock
   m_TagString: RepeaterNeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 1619899936946052}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3acaf668e2f46bd479d54810e0a980ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: eb4083163b9d7ed449c43e83f8867740, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

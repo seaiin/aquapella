@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 114162510937418048}
   - component: {fileID: 58906902704750722}
   - component: {fileID: 50647502258487220}
+  - component: {fileID: 95999487092118838}
   - component: {fileID: 212475144679269276}
   - component: {fileID: 82002852678494524}
-  - component: {fileID: 95999487092118838}
   m_Layer: 0
   m_Name: Repeater-VioletFish
   m_TagString: RepeaterInv
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 1202745537967104}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2399b993f2a781242b002a43a22b6b08, type: 2}
+  m_Controller: {fileID: 9100000, guid: 15d88161c0d8b804d97c91c2caaddbb0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
