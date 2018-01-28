@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &344709479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -744,12 +744,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1647436667}
   m_Script: {fileID: 11500000, guid: 9181dd18394dff94e92a4765a7ab38f1, type: 3}
---- !u!114 &1567287252 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114555736741329774, guid: 1d8642e78b923c84f92f23f6bdcbcbae,
-    type: 2}
-  m_PrefabInternal: {fileID: 2090628959}
-  m_Script: {fileID: 11500000, guid: a0fc80d32a15ea8408a15fafd86a2374, type: 3}
 --- !u!1001 &1595108537
 Prefab:
   m_ObjectHideFlags: 0
@@ -970,7 +964,7 @@ Prefab:
         type: 2}
       propertyPath: gameManage
       value: 
-      objectReference: {fileID: 1567287252}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114291179722437968, guid: 9704388984a8a6c43b2ab09d09275c16, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9704388984a8a6c43b2ab09d09275c16, type: 2}
