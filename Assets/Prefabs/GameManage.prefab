@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4389497103587128}
-  - component: {fileID: 114759683259809460}
   - component: {fileID: 114555736741329774}
+  - component: {fileID: 114759683259809460}
   m_Layer: 0
   m_Name: GameManage
   m_TagString: Untagged
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fc80d32a15ea8408a15fafd86a2374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sender: {fileID: 114525892448711440, guid: 9704388984a8a6c43b2ab09d09275c16, type: 2}
 --- !u!114 &114759683259809460
 MonoBehaviour:
   m_ObjectHideFlags: 1

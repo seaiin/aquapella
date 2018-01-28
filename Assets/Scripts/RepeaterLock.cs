@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Repeater : MonoBehaviour {
-
+public class RepeaterLock : MonoBehaviour
+{
     public Color repeaterColor;
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -38,19 +38,19 @@ public class Repeater : MonoBehaviour {
 
     public void ChangeColor(Color receiveColor)
     {
-        if(gameObject.tag == "RepeaterPos")
+        if (gameObject.tag == "RepeaterPos")
         {
             repeaterColor.r = PlusColor(receiveColor.r, repeaterColor.r);
             repeaterColor.g = PlusColor(receiveColor.g, repeaterColor.g);
             repeaterColor.b = PlusColor(receiveColor.b, repeaterColor.b);
         }
-        if(gameObject.tag == "RepeaterNeg")
+        if (gameObject.tag == "RepeaterNeg")
         {
             repeaterColor.r = MinColor(receiveColor.r, repeaterColor.r);
             repeaterColor.g = MinColor(receiveColor.g, repeaterColor.g);
             repeaterColor.b = MinColor(receiveColor.b, repeaterColor.b);
         }
-        if(gameObject.tag == "RepeaterInv")
+        if (gameObject.tag == "RepeaterInv")
         {
             repeaterColor.r = InvColor(repeaterColor.r);
             repeaterColor.g = InvColor(repeaterColor.g);
@@ -60,10 +60,11 @@ public class Repeater : MonoBehaviour {
 
     public float InvColor(float color)
     {
-        if(color > 0)
+        if (color > 0)
         {
             return 0;
-        } else
+        }
+        else
         {
             return 255.0f;
         }
@@ -77,15 +78,5 @@ public class Repeater : MonoBehaviour {
     public float MinColor(float a, float b)
     {
         return Mathf.Abs(a - b);
-    }
-
-    void OnMouseDrag()
-    {
-        if (!FindObjectOfType<GameManage>().GetRun())
-        {
-            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
-            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint);
-            transform.position = cursorPosition;
-        }
     }
 }
