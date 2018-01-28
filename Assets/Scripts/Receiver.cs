@@ -21,6 +21,8 @@ public class Receiver : MonoBehaviour {
         {
             Wave wave = collision.gameObject.GetComponent<Wave>();
             receiverColor = wave.GetColor();
+            wave.DesWave();
+            FindObjectOfType<AudioManager>().Play("ping");
         }
     }
 

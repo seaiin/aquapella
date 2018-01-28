@@ -86,11 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aa6c3c9e5fb304bb0169b8765fe4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amp: 0
-  minPosX: 0
-  maxPosX: 0
-  minPosY: 0
-  maxPosY: 0
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &212412290528587628
 SpriteRenderer:
   m_ObjectHideFlags: 1
