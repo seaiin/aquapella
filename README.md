@@ -6,7 +6,7 @@ This is our first project for Global Game Jam.
 * [seaiin](https://github.com/seaiin) (Game Design, Develop)
 * [squidpurin](https://github.com/squidpurin) (Game Design, Sound Design, Develop)
 * [nongaoynalux](https://github.com/nongaoynalux) (Art)
-* [neen_umin] (Art)
-* [IMME] (Art)
+* neen_umin (Art)
+* IMME (Art)
 
 ### Game Information
